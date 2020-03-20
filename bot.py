@@ -30,6 +30,9 @@ def loadCussWords():
 # global variable for list of cuss words
 cusswords = loadCussWords()
 
+#dictionary to hold user infraction count
+userdict = {}
+
 # function to print information once connected to guild
 @client.event
 async def on_ready():
@@ -59,23 +62,47 @@ async def on_message(message):
     # get the message, change to lower case and make it a list
     msg = message.content.lower().split()
 
+    # get author's name for use in userdict
+    author = message.author
+
+    # count for cuss words in message
+    cnt = 0
+
     # iterate message list looking for cuss words.
     for word in msg:
         if word in cusswords:
-
             # log offender to terminal
-            print(f'{word} {message.author}')
-
-            # create response to offense and tag offender in response
-            response = f'@{message.author} was shot in the foot'
-
-            # post response
-            await message.channel.send(response)
-            break
+            print(f'{word} {author}')
+            # increment count
+            cnt = cnt + 1
+            print(cnt)
 
         # exception handling
         elif message.content == 'raise-exception':
             raise discord.DiscordException
+
+    # create response to offense and tag offender in response
+    response = f'@{author} was shot in the foot'
+
+    # add author to userdict and add current count
+    if author not in userdict:
+        userdict[author] = cnt
+        print(f'{author} count = {userdict[author]}')
+    # else increment author by cnt
+    else:
+        userdict[author] = userdict[author] + cnt
+        print(f'{author} count = {userdict[author]}')
+
+    # shoot if cnt greater than 2
+    if cnt > 2:
+        print('count greater than 2')
+        # post response
+        # await message.channel.send(response)
+    # shoot if author has a multiple of 5 infractions
+    elif userdict[author] % 5 == 0:
+        print('user mod 5')
+        # post response
+        # await message.channel.send(response)
 
 # run the client
 client.run(TOKEN)
