@@ -21,4 +21,6 @@ numguns = count(root[0])
 nummags = count(root[1])
 numbodyparts = count(root[2])
 
-print(f'you got shot with a {root[0][r.randint(1,4)-1].tag()}')
+gun = root[0]
+
+print(f'you got shot with a {gun[r.randint(1,numguns)-1].attrib["name"]}')
