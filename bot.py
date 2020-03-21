@@ -79,7 +79,6 @@ async def on_message(message):
             print(f'{word} {author}')
             # increment count
             cnt = cnt + 1
-            print(cnt)
 
         # exception handling
         elif message.content == 'raise-exception':
@@ -91,7 +90,7 @@ async def on_message(message):
     # add author to userdict and add current count
     if author not in userdict.keys():
         userdict[author] = cnt
-        print(f'{author} count = {userdict[author]}')
+        print(f'new author {author} count = {userdict[author]}')
     # else increment author by cnt
     else:
         userdict[author] = userdict[author] + cnt
