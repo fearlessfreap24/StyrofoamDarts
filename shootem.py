@@ -25,4 +25,4 @@ gun = root[0][r.randint(1,numguns)-1][0].text
 bodypart = root[2][r.randint(1,numbodyparts)-1].text
 magazine = root[1][r.randint(1,nummags)-1][1].text
 shotcount = r.randint(1,int(magazine))
-print(f'you were with a {gun} in the {bodypart} {shotcount} times.')
+print(f'you were shot with a {gun} in the {bodypart} {shotcount} times.')
