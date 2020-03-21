@@ -23,4 +23,4 @@ numbodyparts = count(root[2])
 
 gun = root[0]
 
-print(f'you got shot with a {gun[r.randint(1,numguns)-1].attrib["name"]}')
+print(f'you got shot with a {gun[r.randint(1,numguns)-1][0].text}')
