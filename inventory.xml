@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventory>
+    <guns>
+        <gun>
+            <name>ECS-10</name>
+            <feed>magazine</feed>
+            <maxCap>magazine</maxCap>
+        </gun>
+        <gun>
+            <name>Rampage</name>
+            <feed>magazine</feed>
+            <maxCap>magazine</maxCap>
+        </gun>
+        <gun>
+            <name>Strongarm</name>
+            <feed>manual</feed>
+            <maxCap>6</maxCap>
+        </gun>
+        <gun>
+            <name>Guardian Crossbow</name>
+            <feed>manual</feed>
+            <maxCap>6</maxCap>
+        </gun>
+    </guns>
+    <magazines>
+        <mag>
+            <name>short</name>
+            <cap>6</cap>
+        </mag>
+        <mag>
+            <name>medium</name>
+            <cap>12</cap>
+        </mag>
+        <mag>
+            <name>long</name>
+            <cap>18</cap>
+        </mag>
+        <mag>
+            <name>small drum</name>
+            <cap>25</cap>
+        </mag>
+        <mag>
+            <name>large drum</name>
+            <cap>35</cap>
+        </mag>
+    </magazines>
+</inventory>
