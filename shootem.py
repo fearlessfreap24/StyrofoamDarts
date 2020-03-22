@@ -33,7 +33,7 @@ class Shootem:
     def __init__(self):
         self.gun = root[0][r.randint(1, numguns-1)]
         self.mag = root[1][r.randint(1, nummags-1)]
-        self.count = 0
+        self.body = root[2][r.randint(1, numbodyparts-1)]
 
     def getgun(self):
         name = self.gun[0].text
@@ -47,17 +47,22 @@ class Shootem:
             return magazine
 
     def getcount(self):
-        if self.gun[1] == "manual":
+        if self.gun[1].text == "manual":
             return self.gun[2].text
         else:
             return self.mag[1].text
+
+    def getbodypart(self):
+        return self.body.text
 
     def printshoot(self, author):
         gun = self.getgun()
         mag = self.getmag()
         cnt = self.getcount()
+        body = self.getbodypart()
 
         if mag == "":
-            return f'@{author} was shot with a {gun} {r.randint(1, int(cnt))} times.'
+            return f'{author} was shot in the {body} {r.randint(1, int(cnt))} times with a {gun} .'
         else:
-            return f'@{author} was shot with a {gun} holding a {mag} magazine {r.randint(1, int(cnt))} times.'
+            return f'{author} was shot in the {body} {r.randint(1, int(cnt))} times with a {gun}' \
+                   f' holding a {mag} magazine .'
