@@ -102,7 +102,7 @@ async def on_message(message):
         # post response
         await message.channel.send(response)
     # shoot if author has a multiple of 5 infractions
-    elif userdict[author] % 5 == 0:
+    elif userdict[author] % 5 == 0 and userdict[author] != 0:
         print('user mod 5')
         # post response
         await message.channel.send(response)
