@@ -2,6 +2,7 @@
 import os
 import discord
 from dotenv import load_dotenv
+from shootem import Shootem
 
 # load enviroment variables from .env file
 load_dotenv()
@@ -55,6 +56,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
+    # instantiate shootem
+    sh = Shootem()
+
     # make sure bot doesn't respond to bot posts
     if message.author == client.user:
         return
@@ -85,7 +89,7 @@ async def on_message(message):
             raise discord.DiscordException
 
     # create response to offense and tag offender in response
-    response = f'@{author} was shot in the foot'
+    response = sh.printshoot(author)
 
     # add author to userdict and add current count
     if author not in userdict.keys():
