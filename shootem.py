@@ -58,6 +58,6 @@ class Shootem:
         cnt = self.getcount()
 
         if mag == "":
-            return f'{author} was shot with a {gun} {r.randint(1, int(cnt))} times.'
+            return f'@{author} was shot with a {gun} {r.randint(1, int(cnt))} times.'
         else:
-            return f'{author} was shot with a {gun} holding a {mag} magazine {r.randint(1, int(cnt))} times.'
+            return f'@{author} was shot with a {gun} holding a {mag} magazine {r.randint(1, int(cnt))} times.'
