@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import random as r
 
 
-# function to coutn items in sub trees of xml file
+# function to count items in sub trees of xml file
 def count(thing):
     cnt = 0
     for item in thing:
@@ -28,41 +28,36 @@ nummags = count(root[1])
 numbodyparts = count(root[2])
 
 
-class Shootem():
+class Shootem:
 
     def __init__(self):
-        self.gun = root[0][r.randint[1, numguns-1]]
-        self.mag = root[1][r.randint(1,nummags)-1]
+        self.gun = root[0][r.randint(1, numguns-1)]
+        self.mag = root[1][r.randint(1, nummags-1)]
         self.count = 0
 
     def getgun(self):
-        name = self.gun[0]
+        name = self.gun[0].text
         return name
 
     def getmag(self):
-        magazine = self.mag[0]
-        if self.gun[1] == "manual":
+        magazine = self.mag[0].text
+        if self.gun[1].text == "manual":
             return ""
         else:
             return magazine
 
     def getcount(self):
+        if self.gun[1] == "manual":
+            return self.gun[2].text
+        else:
+            return self.mag[1].text
 
+    def printshoot(self, author):
+        gun = self.getgun()
+        mag = self.getmag()
+        cnt = self.getcount()
 
-
-
-
-
-
-sh = Shootem()
-
-print(sh.selectgun())
-# # set random body part text
-# bodypart = root[2][r.randint(1,numbodyparts)-1].text
-# # get capacity of random magazine
-# magazine = root[1][r.randint(1,nummags)-1][1].text
-# # get random shot count
-# shotcount = r.randint(1,int(magazine))
-#
-# # print shot statement
-# print(f'you were shot with a {gun} in the {bodypart} {shotcount} times.')
+        if mag == "":
+            return f'{author} was shot with a {gun} {r.randint(1, int(cnt))} times.'
+        else:
+            return f'{author} was shot with a {gun} holding a {mag} magazine {r.randint(1, int(cnt))} times.'
