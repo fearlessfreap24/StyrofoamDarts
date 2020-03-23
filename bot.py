@@ -80,7 +80,7 @@ async def on_message(message):
     for word in msg:
         if word in cusswords:
             # log offender to terminal
-            print(f'{word} {author}')
+            # print(f'{word} {author}')
             # increment count
             cnt = cnt + 1
 
@@ -107,7 +107,7 @@ async def on_message(message):
         await message.channel.send(response)
     # shoot if author has a multiple of 9 infractions
     elif userdict[author] % 9 == 0 and userdict[author] != 0:
-        print('user mod 5')
+        print('user mod 9')
         # post response
         await message.channel.send(response)
         # reset user count so that it doesnt repeat shot on next message.
