@@ -21,6 +21,16 @@
             <feed>manual</feed>
             <maxCap>6</maxCap>
         </gun>
+        <gun>
+            <name>Zombie Strike</name>
+            <feed>manual</feed>
+            <maxCap>1</maxCap>
+        </gun>
+        <gun>
+            <name>Jolt</name>
+            <feed>manual</feed>
+            <maxCap>1</maxCap>
+        </gun>
     </guns>
     <magazines>
         <mag>
@@ -46,6 +56,7 @@
     </magazines>
     <bodyparts>
         <name>head</name>
+        <name>throat</name>
         <name>chest</name>
         <name>left arm</name>
         <name>right arm</name>
