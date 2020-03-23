@@ -69,9 +69,9 @@ async def on_message(message):
     # get author's name for use in userdict
     author = message.author.name + "#" + message.author.discriminator
 
-    # restrict bot to bot-test channel
-    if str(message.channel) != "bot-test":
-        return
+    # # restrict bot to bot-test channel
+    # if str(message.channel) != "bot-test":
+    #     return
 
     # count for cuss words in message
     cnt = 0
@@ -100,16 +100,18 @@ async def on_message(message):
         userdict[author] = userdict[author] + cnt
         print(f'{author} count = {userdict[author]}')
 
-    # shoot if cnt greater than 2
-    if cnt > 2:
-        print('count greater than 2')
+    # shoot if cnt greater than 4
+    if cnt > 4:
+        print('count greater than 4')
         # post response
         await message.channel.send(response)
-    # shoot if author has a multiple of 5 infractions
-    elif userdict[author] % 5 == 0 and userdict[author] != 0:
+    # shoot if author has a multiple of 9 infractions
+    elif userdict[author] % 9 == 0 and userdict[author] != 0:
         print('user mod 5')
         # post response
         await message.channel.send(response)
+        # reset user count so that it doesnt repeat shot on next message.
+        userdict[author] = 0
 
     print(userdict)
 
